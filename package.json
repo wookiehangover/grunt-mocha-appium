@@ -1,0 +1,39 @@
+{
+  "name": "grunt-mocha-appium",
+  "version": "0.1.0",
+  "description": "Run functional Mocha tests with wd and Appium.",
+  "homepage": "https://github.com/wookiehangover/grunt-mocha-appium",
+  "bugs": "https://github.com/wookiehangover/grunt-mocha-appium/issues",
+  "author": {
+    "name": "Sam Breed",
+    "email": "sam@quickleft.com"
+  },
+  "keywords": [
+    "gruntplugin",
+    "selenium",
+    "mocha",
+    "appium",
+    "testing"
+  ],
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wookiehangover/grunt-mocha-appium"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.2.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "wd": "~0.1.0",
+    "mocha": "~1.13.0",
+    "freeport": "~1.0.2"
+  }
+}
