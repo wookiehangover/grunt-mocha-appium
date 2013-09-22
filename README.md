@@ -1,7 +1,7 @@
 grunt-mocha-appium
 ==================
 
-> Run functional tests with [Mocha](https://github.com/visionmedia/mocha)
+> Run functional tests with [Mocha](https://github.com/visionmedia/mocha),
 > [wd](https://github.com/admc/wd) and [Appium](http://appium.io/).
 
 ## Getting Started
