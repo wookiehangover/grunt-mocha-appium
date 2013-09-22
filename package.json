@@ -13,7 +13,9 @@
     "selenium",
     "mocha",
     "appium",
-    "testing"
+    "testing",
+    "cordova",
+    "phonegap"
   ],
   "main": "Gruntfile.js",
   "repository": {
