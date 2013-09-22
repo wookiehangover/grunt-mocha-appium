@@ -74,11 +74,13 @@ module.exports = function(grunt) {
       }
 
       appium.stdout.on('data', function(data){
-        // grunt.log.debug('Appium > '+ data.toString().replace('\n', ''));
+        grunt.log.debug('Appium > '+ data.toString().replace('\n', ''));
       });
 
       appium.stderr.on('data', function(data){
-        // grunt.log.error('Appium > '+ data);
+        // Appium has debug logging to stderr, so supress these logs with
+        // --verbose since they're not actual errors.
+        grunt.log.verbose.error('Appium > '+ data);
       });
 
       var remote = options.usePromises ? 'promiseRemote' : 'remote';
@@ -87,11 +89,11 @@ module.exports = function(grunt) {
       var opts = _.omit(options, 'usePromises', 'appiumPath');
 
       browser.on('status', function(info){
-        // grunt.log.writeln('\x1b[36m%s\x1b[0m', info);
+        grunt.log.writeln('\x1b[36m%s\x1b[0m', info);
       });
 
       browser.on('command', function(meth, path, data){
-        // grunt.log.debug(' > \x1b[33m%s\x1b[0m: %s', meth, path, data || '');
+        grunt.log.debug(' > \x1b[33m%s\x1b[0m: %s', meth, path, data || '');
       });
 
       browser.init(opts, function(err){

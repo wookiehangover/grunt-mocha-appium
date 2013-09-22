@@ -1,6 +1,6 @@
 {
   "name": "grunt-mocha-appium",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run functional Mocha tests with wd and Appium.",
   "homepage": "https://github.com/wookiehangover/grunt-mocha-appium",
   "bugs": "https://github.com/wookiehangover/grunt-mocha-appium/issues",
