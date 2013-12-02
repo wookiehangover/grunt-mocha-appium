@@ -1,6 +1,6 @@
 {
   "name": "grunt-mocha-appium",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Run functional Mocha tests with wd and Appium.",
   "homepage": "https://github.com/wookiehangover/grunt-mocha-appium",
   "bugs": "https://github.com/wookiehangover/grunt-mocha-appium/issues",
@@ -34,8 +34,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "wd": "~0.1.0",
-    "mocha": "~1.13.0",
+    "wd": "~0.2.5",
+    "mocha": "~1.14.0",
     "freeport": "~1.0.2"
   }
 }

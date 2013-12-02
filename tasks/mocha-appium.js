@@ -7,7 +7,6 @@ module.exports = function(grunt) {
   var mocha = require('./lib/mocha-runner');
   var mochaReporterBase = require('mocha/lib/reporters/base');
   var wd = require('wd');
-  var path = require('path');
   var appiumLauncher = require('./lib/appium-launcher');
   var _ = grunt.util._;
 
@@ -58,11 +57,6 @@ module.exports = function(grunt) {
       // Indicate whether we failed to the grunt task runner
       next(withoutErrors);
     };
-
-    if (options.browserName === 'phantomjs' && !options.useSystemPhantom) {
-      // add npm-supplied phantomjs bin dir to PATH, so selenium can launch it
-      process.env.PATH = path.dirname(phantomjs.path) + ':' + process.env.PATH;
-    }
 
     // launch appium
     appiumLauncher(_.pick(options, 'appiumPath'), function(err, appium){

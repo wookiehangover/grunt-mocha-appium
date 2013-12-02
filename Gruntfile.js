@@ -44,7 +44,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.registerTask('test', ['mochaSelenium', 'mochaAppium']);
+  grunt.registerTask('test', ['mochaAppium']);
 
   grunt.registerTask('default', ['jshint', 'test']);
 };
