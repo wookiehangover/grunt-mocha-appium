@@ -9,12 +9,12 @@ function run(options, cb) {
     if( err ){
       throw err;
     }
-    console.log('Starting Appium on port ' + port);
-    var child;
+    var appiumArgs = options.appiumArgs || [];
+    appiumArgs.push('--port', port);
+    console.log('Starting Appium with args: ' + appiumArgs.join(" "));
 
-    child = spawn(APPIUM_PATH, [
-      '--port', port,
-    ]);
+    var child;
+    child = spawn(APPIUM_PATH, appiumArgs);
     child.host = '0.0.0.0';
     child.port = port;
 

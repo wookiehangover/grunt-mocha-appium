@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     };
 
     // launch appium
-    appiumLauncher(_.pick(options, 'appiumPath'), function(err, appium){
+    appiumLauncher(_.pick(options, 'appiumPath', 'appiumArgs'), function(err, appium){
       grunt.log.writeln('Appium Running');
       if(err){
         appium.kill();
