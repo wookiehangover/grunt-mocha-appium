@@ -57,11 +57,11 @@ grunt.initConfig({
       src: ['test/*.js'],
       options: {
         // Appium Options
-        device: 'iPhone Simulator',
-        platform: 'MAC',
+        deviceName: 'iPhone Simulator',
+        platformName: 'iOS',
         version: '6.1',
         // A url of a zip file containg your .app package
-        // or 
+        // or
         // A local absolute path to your simulator-compiled .app directory
         app: 'http://appium.s3.amazonaws.com/TestApp6.0.app.zip'
       }

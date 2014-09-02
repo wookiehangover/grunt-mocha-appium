@@ -29,10 +29,10 @@ module.exports = function(grunt) {
       iphone: {
         src: ['test/functional/appium.js'],
         options: {
-          device: 'iPhone Simulator',
-          platform: 'MAC',
-          version: '6.1',
-          app: 'http://appium.s3.amazonaws.com/TestApp6.0.app.zip',
+          deviceName: 'iPhone Simulator',
+          platformName: 'iOS',
+          version: '7.1',
+          app: 'http://appium.s3.amazonaws.com/TestApp7.0.app.zip',
           browserName: "iOS",
           newCommandTimeout: 60
         }

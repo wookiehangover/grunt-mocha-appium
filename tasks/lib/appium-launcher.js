@@ -22,6 +22,11 @@ function run(options, cb) {
       cb(new Error('Could not start Appium.'), child);
     }
 
+    child.stderr.on('data', function(data){
+      console.log(data.toString());
+      badExit();
+    })
+
     child.stdout.on('data', function(data) {
       var sentinal = 'Welcome to Appium';
       if (data.toString().indexOf(sentinal) !== -1) {
