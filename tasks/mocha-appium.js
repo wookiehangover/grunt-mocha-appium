@@ -77,7 +77,7 @@ module.exports = function(grunt) {
         grunt.log.verbose.error('Appium > '+ data);
       });
 
-      var remote = options.usePromises ? 'promiseRemote' : 'remote';
+      var remote = options.usePromises ? 'promiseChainRemote' : 'remote';
       var browser = wd[remote](appium.host, appium.port);
 
       var opts = _.omit(options, 'usePromises', 'appiumPath');
