@@ -14,6 +14,7 @@ module.exports = function(grunt) {
         var done = this.async();
         // Retrieve options from the grunt task.
         var options = this.options({
+            additionalMochaData: null,
             usePromises: false,
             useBrowserChainWrapper: false
         });
@@ -89,7 +90,9 @@ module.exports = function(grunt) {
 
             var browser = wd[remote](appium.host, appium.port);
 
-            var opts = _.omit(options, 'usePromises', 'useBrowserChainWrapper', 'appiumPath');
+            var additionalMochaData = options.additionalMochaData;
+
+            var opts = _.omit(options, 'additionalMochaData', 'usePromises', 'useBrowserChainWrapper', 'appiumPath');
 
             browser.on('status', function(info){
                 grunt.log.writeln('\x1b[36m%s\x1b[0m', info);
@@ -105,7 +108,7 @@ module.exports = function(grunt) {
                     return;
                 }
 
-                var runner = mocha(options, browser, wd, grunt, fileGroup);
+                var runner = mocha(options, browser, wd, grunt, fileGroup, additionalMochaData);
                 // Create the domain, and pass any errors to the mocha runner
                 var domain = createDomain();
                 domain.on('error', runner.uncaught.bind(runner));
