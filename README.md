@@ -49,7 +49,9 @@ grunt.initConfig({
       reporter: 'spec',
       timeout: 30e3,
       // Toggles wd's promises API, default:false
-      usePromises: false
+      usePromises: false,
+      // Toggles wd's chain API, default:false
+      useBrowserChainWrapper: false,
       // Path to appium executable, default:'appium'
       appiumPath: 'appium'
     },
@@ -84,6 +86,12 @@ Type: `Boolean` Default value: `false`
 If enabled, this will use the [promise-enabled wd browser
 API](https://github.com/admc/wd#promises-api) instead of the normal synchronous
 API.
+
+#### options.useBrowserChainWrapper
+
+Type: `String` Default value: `false`
+
+If enabled, will wrap the browser instance with chaining capability.
 
 #### options.appiumPath
 
