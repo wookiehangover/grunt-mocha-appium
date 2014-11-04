@@ -53,7 +53,9 @@ grunt.initConfig({
       // Toggles wd's chain API, default:false
       useBrowserChainWrapper: false,
       // Path to appium executable, default:'appium'
-      appiumPath: 'appium'
+      appiumPath: 'appium',
+      // Attaches this object to mocha with additional data as you wish, default: {}
+      additionalMochaData: {env:'local', platform:'android' etc...} 
     },
     iphone: {
       src: ['test/*.js'],

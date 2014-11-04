@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         var done = this.async();
         // Retrieve options from the grunt task.
         var options = this.options({
-            additionalMochaData: null,
+            additionalMochaData: {},
             usePromises: false,
             useBrowserChainWrapper: false
         });
