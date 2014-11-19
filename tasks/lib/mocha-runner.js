@@ -2,7 +2,7 @@ var Mocha = require('mocha');
 var Module = require('module');
 var path = require('path');
 
-module.exports = function (options, browser, wd, grunt, fileGroup, additionalMochaData) {
+module.exports = function (options, browser, browserOpts, wd, grunt, fileGroup, additionalMochaData) {
     // Set up the mocha instance with options and files.
     // This is copied from Mocha.prototype.run
     // We need to do this because we need the runner, and the runner
@@ -11,6 +11,7 @@ module.exports = function (options, browser, wd, grunt, fileGroup, additionalMoc
 
     mocha.suite.on('pre-require', function (context, file, m) {
         this.ctx.browser = browser;
+        this.ctx.browserOpts = browserOpts;
         this.ctx.wd = wd;
         this.ctx.additionalMochaData = additionalMochaData;
     });

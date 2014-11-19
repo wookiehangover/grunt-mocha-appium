@@ -102,35 +102,25 @@ module.exports = function(grunt) {
                 grunt.log.debug(' > \x1b[33m%s\x1b[0m: %s', meth, path, data || '');
             });
 
-            browser.init(opts, function(err){
-                if(err){
-                    grunt.fail.fatal(err);
-                    return;
-                }
 
-                var runner = mocha(options, browser, wd, grunt, fileGroup, additionalMochaData);
-                // Create the domain, and pass any errors to the mocha runner
-                var domain = createDomain();
-                domain.on('error', runner.uncaught.bind(runner));
+            var runner = mocha(options, browser, opts, wd, grunt, fileGroup, additionalMochaData);
+            // Create the domain, and pass any errors to the mocha runner
+            var domain = createDomain();
+            domain.on('error', runner.uncaught.bind(runner));
 
-                // Give selenium some breathing room
-                setTimeout(function(){
-                    // Selenium Download and Launch
-                    domain.run(function() {
-                        runner.run(function(err){
-                            browser.quit(function(){
-                                appium.kill();
-                                mochaDone(err);
-                                if (err) {
-                                    grunt.fail.warn('One or more tests failed.');
-                                }
-                            });
-                        });
+            // Give selenium some breathing room
+            setTimeout(function () {
+                // Selenium Download and Launch
+                domain.run(function () {
+                    runner.run(function (err) {
+                        appium.kill();
+                        mochaDone(err);
+                        if (err) {
+                            grunt.fail.warn('One or more tests failed.');
+                        }
                     });
-                }, 300);
-            });
-
+                });
+            }, 300);
         });
-
     }
 };
