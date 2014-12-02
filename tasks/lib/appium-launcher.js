@@ -23,7 +23,9 @@ function run(options, cb) {
     }
 
     child.stderr.on('data', function(data){
-      console.log(data.toString());
+      var parsedData = data.toString();
+      console.log(parsedData);
+      if(parsedData && parsedData.match(/deprecated/)){return;}
       badExit();
     })
 
