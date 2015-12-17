@@ -24,7 +24,11 @@ function run(options, cb) {
 
     child.stderr.on('data', function(data){
       console.log(data.toString());
-      badExit();
+      if (data.toString().match(/Could not reset simulator/)) {
+        console.log('Ignoring above error');
+      } else {
+        badExit();
+      }
     })
 
     child.stdout.on('data', function(data) {
